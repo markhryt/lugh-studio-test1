@@ -1,3 +1,4 @@
+import "./index.css";
 
 
 const button = document.getElementById("contactbutton")
