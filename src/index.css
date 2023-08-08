@@ -268,7 +268,7 @@ input[type=text] {
 .bott img{
     grid-column-start: 3;
     grid-column-end: 5;
-    width: 120%;
+    width: 100%;
     grid-row-start: 2;
 }
 
