@@ -1,12 +1,38 @@
+/*
+Theme Name: My Theme
+Author: Mark Hrytchak
+Description: My first responsive HTML5 theme
+Version: 1.0
+License: GNU General Public License v3 or later
+License URI: http://www.gnu.org/licenses/gpl-3.0.html
+*/
+
 @import url('https://fonts.googleapis.com/css2?family=Merriweather&family=Montserrat:ital,wght@0,300;0,500;1,300&display=swap');
 html{
     font-family: "Montserrat", 'sans-serif';
 }
 
+.content {
+    max-width: 1440px; /* Adjust the value as needed */
+    width: 100%; /* Allow the container to take all available width */
+    margin: 0 auto; /* Center the container horizontally */
+    padding: 20px; /* Optional padding for content spacing */
+    box-sizing: border-box; /* Include padding and border in the width calculation */
+}
+.lugh-image{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+}
+.lugh-image img{
+    grid-column-start: 2;
+    grid-column-end: 4;
+    width: 100%;
+}
+
 .opening{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-    grid-template-rows: 0.2fr 1fr 0.2fr;
+    grid-template-rows: 0.5fr 1fr 0.2fr;
 }
 
 .opening img{
@@ -49,13 +75,13 @@ html{
 .opening .but{
     background-color: #439539;
     grid-column-start: 2;
-    grid-row-start: 3;  
+    grid-row-start: 4;  
     width: 90%;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-content: center;
-    height: 70%;
+    height: 40%;
 }
 .but p{
     color: white;
@@ -66,13 +92,13 @@ html{
     margin-top: 5rem;
     color:white;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1.5fr 1fr 1fr 1fr 1fr 1fr 1fr;
     grid-template-rows: 1fr;
 
 }
 
 .help-homeless img{
-    width: 150%; 
+    width: 100%; 
     align-self: center;
     grid-column-start: 2;
     grid-column-end: 3;
@@ -90,6 +116,7 @@ html{
     background-color: #220E51;
     height: 60%;
     align-self: center;
+    line-height: 1.5rem;
 }
 .help-homeless p{
     font-style: italic;
@@ -100,7 +127,11 @@ html{
     font-weight:300;
 }
 .help-homeless h5{
+    margin-top: 1rem;
     font-weight: 300;
+    width: 50%;
+    padding-left: 25%;
+    padding-right: 25%;
 }
 
 .help-homeless .befim{
@@ -156,9 +187,8 @@ html{
 
 .start{
     position: relative;
-    width: 103%;
+    width: 100%;
     top: 10rem;
-    left: -1rem;
     background-color: #FFFAE8;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
@@ -229,8 +259,7 @@ input[type=text] {
     background-color: black;
     position: relative;
     top:10rem;
-    left: -1rem;
-    width: 103%;
+    width: 100%;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
     grid-template-rows: 0.5fr 0.3fr 0.3fr 0.3fr 0.3fr;
@@ -262,6 +291,11 @@ input[type=text] {
 }
 
 @media only screen and (max-width: 650px) {
+    .lugh-image img{
+        grid-column-start: 2;
+        grid-column-end: 8;
+        width: 100%;
+    }
     .opening{
         display: grid;
         grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
@@ -283,31 +317,31 @@ input[type=text] {
     .opening .but{
         grid-column-start: 3;
         grid-column-end: 7;
-        grid-row-start: 3;  
+        grid-row-start: 4;  
         width: 90%;
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
         align-content: center;
-        height: 70%;
+        height: 40%;
     }
     .help-homeless{
         margin-top: 5rem;
         color:white;
         display: grid;
-        grid-template-columns: 1fr 1fr 1fr 1fr;
-        grid-template-rows: 1fr 1fr;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr;
     
     }
     
     .help-homeless img{
-        width: 200%; 
         align-self: start;
         grid-column-start: 2;
-        grid-column-end: 3;
+        grid-column-end: 5;
         grid-row-start: 1;
         z-index: 3;
         background-color: #E6E6E6;
+        margin-bottom: 4rem;
     }
     .help-homeless .befim{
         display: none;
@@ -316,9 +350,9 @@ input[type=text] {
         grid-column-start: 1;
         grid-column-end: 9;
         grid-row-start: 1;
-        grid-row-end: 3;
-        align-content: flex-end;
-
+        grid-row-end: 4;
+        align-content: center;
+        line-height: 2rem;
     }
     .about{
         grid-template-columns: 1fr 1fr 1fr 1fr 1fr;

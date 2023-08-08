@@ -1,30 +1,33 @@
 import "./index.css";
+import "./reset.css";
 
+(function($) {
+    $(document).ready(function() {
+		
+        $("#contactbutton").click( function(e) {
+            e.preventDefault();
 
-const button = document.getElementById("contactbutton")
+            // Serialize the form data
+            var formData = $('#contactus').serialize();
 
-button.addEventListener('click',  function contactUs(event){
-    event.preventDefault();
-    const fullName = document.getElementById('fname').value;
-    const company = document.getElementById('company').value;
-    const email = document.getElementById('email').value;
-    const message = document.getElementById('message').value;
-
-    // Log form field values
-    console.log('Full Name:', fullName);
-    console.log('Company:', company);
-    console.log('Email:', email);
-    console.log('Message:', message);
-    (function(){
-        emailjs.init("i9P0tanq7Q5bqkfPF");
-        emailjs.send("service_52dmlph", 'my_first_template', {from_name:fullName,
-            company:company, 
-            email:email,
-            message: message,
-            reply_to:"reply"},
-             "i9P0tanq7Q5bqkfPF");
-     })();
-})
-
-
-
+            // Add the action and nonce to the data
+            formData += '&action=my_ajax_action&nonce=' + OBJ.nonce;
+            $.ajax({
+                type : "post",
+                dataType : "json",
+                url : OBJ.ajaxurl,
+                data : formData,
+                success: function(response) {
+                    if( response.type == "success" ) {
+                        // Success Message
+                        window.alert("Your e-mail was successfully sent. Thank you!");
+                    }
+                    else {
+                        // Error on Failure.
+                        window.alert("An Error occurred!");
+                    }
+                }
+            });
+        });
+    });
+})(jQuery);
